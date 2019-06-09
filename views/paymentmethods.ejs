@@ -261,7 +261,7 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
         <li><a href="/"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
         <li><a href="#"><i class="fa fa-link"></i> <span>Products</span></a></li>
-        <li class="treeview">
+        <li class="treeview active">
           <a href="#"><i class="fa fa-link"></i> <span>Account Service</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -319,19 +319,23 @@ desired effect
                   <th>Type</th>
                   <th>Brand</th>
                   <th>Last 4 digit</th>
-                  <th>Status</th>
+                  <th>Name</th>
                   <th>Expiration</th>
+                  <th>Verified</th>
                 </tr>
-                <tr>
-                  <a href="/paymentmethods/123">
-                  <td>123</td>
-                  <td>Direct Debit</td>
-                  <td>SMBC</td>
-                  <td>*1234</td>
-                  <td><span class="label label-success">Approved</span></td>
-                  <td>2020-12-31</td>
-                  </a>
-                </tr>
+
+                <% for (let i=0; i<paymentMethods.length; i++) { %>
+                  <tr>
+                    <td><%= i %></td>
+                    <td><%= paymentMethods[i].type %></td>
+                    <td><%= paymentMethods[i].brand %></td>
+                    <td><%= paymentMethods[i].number.slice(-4) %></td>
+                    <td><%= paymentMethods[i].address %></td>
+                    <td><%= paymentMethods[i].expire %></td>
+                    <td><span class="label label-success"><%= paymentMethods[i].isVerified %></td>
+                  </tr>
+                <% } %>
+
               </table>
             </div>
             <!-- /.box-body -->
