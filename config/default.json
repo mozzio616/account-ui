@@ -1,0 +1,14 @@
+{
+  "api": {
+    "signup": "https://account-api.nttpc.now.sh/signup",
+    "verify": "https://account-api.nttpc.now.sh/verify",
+    "signin": "https://account-api.nttpc.now.sh/signin",
+    "accounts": "https://account-api.nttpc.now.sh/accounts"
+  },
+  "db": {
+    "host": "MONGO_DB_HOST",
+    "user": "MONGO_DB_USER",
+    "pass": "MONGO_DB_PASS",
+    "name": "accounts"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "name": "online",
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@now/node",
+      "config":
+        {
+          "maxLambdaSize": "50mb"
+        }
+    },
+    {
+      "src": "**/*.ejs",
+      "use": "@now/static"
+    },
+    {
+      "src": "**/*.css",
+      "use": "@now/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "(.*)",
+      "dest": "index.js"
+    }
+  ],
+  "env": {
+    "MONGO_DB_USER": "@mongo-db-user",
+    "MONGO_DB_PASS": "@mongo-db-pass",
+    "MONGO_DB_HOST": "@mongo-db-host"
+  }
+}
