@@ -1,14 +1,12 @@
 'use strict'
 
 const router = require('express').Router();
+const config = require('config');
+process.env["NODE_CONFIG_DIR"] = __dirname + '/../config/';
 const rp = require('request-promise');
-
-// Sign Up API Config
-const host = 'https://account-api.mozzio616.now.sh/signup';
 
 // Supported Media
 const supported_media = [ 'email', 'slack' ];
-
 
 router.get('/', (req, res) => {
 
@@ -18,7 +16,6 @@ router.get('/', (req, res) => {
 
 });
 
-
 router.post('/', (req, res) => {
 
     const email = req.body.email;
@@ -27,7 +24,7 @@ router.post('/', (req, res) => {
     // Send Request to One-Time Token API
     const options = {
       method: 'POST',
-      url: host,
+      url: config.api.signup,
       json: {email: email, password: password}
     };
 
