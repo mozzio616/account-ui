@@ -3,7 +3,9 @@
     "signup": "https://account-api.nttpc.now.sh/signup",
     "verify": "https://account-api.nttpc.now.sh/verify",
     "signin": "https://account-api.nttpc.now.sh/signin",
-    "accounts": "https://account-api.nttpc.now.sh/accounts"
+    "accounts": "https://account-api.nttpc.now.sh/accounts",
+    "products": "https://products-api.nttpc.now.sh/products",
+    "catalogs": "https://products-api.nttpc.now.sh/catalogs"
   },
   "db": {
     "host": "MONGO_DB_HOST",
