@@ -1,0 +1,16 @@
+{
+  "api": {
+    "signup": "http://localhost:3000/signup",
+    "verify": "http://localhost:3000/verify",
+    "signin": "http://localhost:3000/signin",
+    "accounts": "http://localhost:3000/accounts",
+    "products": "http://localhost:3001/products",
+    "catalogs": "http://localhost:3001/catalogs"
+  },
+  "db": {
+    "host": "MONGO_DB_HOST",
+    "user": "MONGO_DB_USER",
+    "pass": "MONGO_DB_PASS",
+    "name": "accounts"
+  }
+}

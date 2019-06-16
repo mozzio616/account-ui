@@ -12,6 +12,12 @@ const app = express();
 // Static
 app.use(express.static(__dirname + '/node_modules/admin-lte/bower_components'));
 app.use(express.static(__dirname + '/node_modules/admin-lte/dist'));
+app.use(express.static(__dirname + '/public'));
+
+// Template Engine
+app.set("view engine", "ejs");
+app.set('views', __dirname + '/views');
+app.engine('ejs', require('ejs').__express);
 
 // Middleware
 app.use(helmet());
@@ -49,16 +55,15 @@ const sessionCheck = function(req, res, next) {
   }
 };
 
-// Template Engine
-app.set("view engine", "ejs");
-app.set('views', __dirname + '/views');
-app.engine('ejs', require('ejs').__express);
-
 // Routing
 app.use("/login", require(__dirname + '/routes/login.js'));
 app.use("/register", require(__dirname + '/routes/register.js'));
 app.use("/verify", require(__dirname + '/routes/verify.js'));
 app.use("/", sessionCheck, require(__dirname + '/routes/index.js'));
+app.use("/orgs", sessionCheck, require(__dirname + '/routes/orgs.js'));
+app.use("/switch-org", sessionCheck, require(__dirname + '/routes/switch-org.js'));
+app.use("/create-org", sessionCheck, require(__dirname + '/routes/create-org.js'));
+app.use("/catalogs", sessionCheck, require(__dirname + '/routes/catalogs.js'));
 app.use("/paymentmethods", sessionCheck, require(__dirname + '/routes/paymentmethods.js'));
 app.use("/logout", require(__dirname + '/routes/logout.js'));
 

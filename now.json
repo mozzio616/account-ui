@@ -17,6 +17,10 @@
     {
       "src": "**/*.css",
       "use": "@now/static"
+    },
+    {
+      "src": "**/*.png",
+      "use": "@now/static"
     }
   ],
   "routes": [

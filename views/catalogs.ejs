@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<%- include('./head') %>
+<%- include('./body') %>
+
+<div class="wrapper">
+
+  <%- include('./header') %>
+  <%- include('./main-sidebar') %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <%= title %>
+        <small>List of organizations you belong to</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Catalogs</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <!-- Small boxes (Stat box) -->
+      <div class="row">
+
+        <% for (let i=0; i<catalogs.length; i++) { %>
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box <%= colors[i%4] %>">
+            <div class="inner">
+              <h3><%= catalogs[i].products.length %></h3>
+
+              <p><%= catalogs[i].catalogName %></p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-ios-bookmarks"></i>
+            </div>
+            <a href="/catalogs/<%= catalogs[i].catalogId %>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <% } %>
+
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <%- include('./footer') %>
+  <%- include('./control-sidebar') %>
+
+</div>
+<!-- ./wrapper -->
+
+<%- include('./script') %>
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. -->
+</body>
+</html>

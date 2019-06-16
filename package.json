@@ -1,7 +1,7 @@
 {
   "main": "index.js",
   "scripts": {
-    "start": "micro"
+    "start": "micro -l tcp://localhost:3002"
   },
   "dependencies": {
     "admin-lte": "^2.4.10",
